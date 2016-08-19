@@ -6,16 +6,16 @@
 <body>
 <form enctype="multipart/form-data" method="post">
     <div class="jlab-row">
-        <label class="jlab-cell-4" for="fileName">File name</label>
-        <input class="jlab-cell-4" type="text" name="fileName" id="fileName">
+        <label class="jlab-cell-2" for="fileName">File name</label>
+        <input class="jlab-cell-2" type="text" name="fileName" id="fileName">
     </div>
     <div class="jlab-row">
-        <label class="jlab-cell-4" for="fileContent">File name</label>
-        <input class="jlab-cell-4" type="file" accept="image/*" name="fileContent" id="fileContent">
+        <label class="jlab-cell-2" for="fileContent">Choose file</label>
+        <input class="jlab-cell-2" type="file" accept="image/*" name="fileContent" id="fileContent">
     </div>
     <div class="jlab-row">
-        <label class="jlab-cell-4" for="submit">Start loading</label>
-        <input class="jlab-cell-4" type="submit" id="submit">
+        <label class="jlab-cell-2"></label>
+        <input class="jlab-cell-2" type="submit" value="Start loading" id="submit">
     </div>
 </form>
 </body>

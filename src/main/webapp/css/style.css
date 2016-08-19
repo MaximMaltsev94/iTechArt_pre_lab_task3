@@ -15,11 +15,8 @@ body{
 }
 
 [class^="jlab-cell-"] {
-    text-align: center;
-    color: red;
     display: inline-block;
-    background: #D8E0F2;
-    border: 10px #B4C0D9 solid;
+    margin: 5px;
     box-sizing: border-box;
 }
 
