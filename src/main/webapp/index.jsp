@@ -4,7 +4,7 @@
 <title>File uploading</title>
 <link rel="stylesheet" href="css/style.css">
 <body>
-<form enctype="multipart/form-data" method="post">
+<form enctype="multipart/form-data" method="post" action="Upload">
     <div class="jlab-row">
         <label class="jlab-cell-2" for="fileName">File name</label>
         <input class="jlab-cell-2" type="text" name="fileName" id="fileName" required>
