@@ -7,11 +7,11 @@
 <form enctype="multipart/form-data" method="post">
     <div class="jlab-row">
         <label class="jlab-cell-2" for="fileName">File name</label>
-        <input class="jlab-cell-2" type="text" name="fileName" id="fileName">
+        <input class="jlab-cell-2" type="text" name="fileName" id="fileName" required>
     </div>
     <div class="jlab-row">
         <label class="jlab-cell-2" for="fileContent">Choose file</label>
-        <input class="jlab-cell-2" type="file" accept="image/*" name="fileContent" id="fileContent">
+        <input class="jlab-cell-2" type="file" accept="image/*" name="fileContent" id="fileContent" required>
     </div>
     <div class="jlab-row">
         <label class="jlab-cell-2"></label>
