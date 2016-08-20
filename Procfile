@@ -1,1 +1,1 @@
-web:    java -jar target/dependency/webapp-runner.jar target/iTechArt-pre-lab-task3.war
+web:    java -jar target/dependency/webapp-runner.jar --expand-war target/iTechArt-pre-lab-task3.war
