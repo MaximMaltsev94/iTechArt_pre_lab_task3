@@ -37,7 +37,7 @@
         pageContext.setAttribute("imagesPaths", imagesPaths);
     %>
 
-    <a href="<c:url value="/" />">Back to previous page</a>
+    <a href="<c:url value="/" />">Back to previous page </a>
 
     <c:forEach var="imgCol" items="${imagesPaths}">
         <div class="jlab-row">
