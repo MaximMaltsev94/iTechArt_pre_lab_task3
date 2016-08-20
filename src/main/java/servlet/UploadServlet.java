@@ -7,19 +7,29 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-@WebServlet(name = "UploadServlet", urlPatterns = "/Upload")
 public class UploadServlet extends HttpServlet {
+    private String uploadPath;
+    @Override
+    public void init() throws ServletException {
+        uploadPath = getServletContext().getRealPath("") + File.separator + "img";
+        File uploadDir = new File(uploadPath);
+        if(!uploadDir.exists()) {
+            uploadDir.mkdir();
+            getServletContext().setAttribute("imageFolder", uploadPath);
+        }
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         PrintWriter out = response.getWriter();
@@ -49,39 +59,30 @@ public class UploadServlet extends HttpServlet {
                         try {
                             // Check if loaded file is actually image
                             ImageIO.read(item.getInputStream()).toString();
-                            String uploadPath = getServletContext().getRealPath("") + File.separator + "img";
-                            File uploadDir = new File(uploadPath);
-                            if(!uploadDir.exists()) {
-                                uploadDir.mkdir();
-                            }
 
                             String fileExtension = item.getName().substring(item.getName().indexOf('.'));
-                            out.println(fileExtension);
                             String resultFileName = uploadPath + File.separator + paramFileName + fileExtension;
                             File fileToSave = new File(resultFileName);
                             item.write(fileToSave);
 
-
                             out.println("Successfully loaded");
+
+                            request.setAttribute("imageFolder", uploadPath);
+                            getServletContext().getRequestDispatcher("/showImage.jsp").forward(request, response);
                         } catch (Exception ex) {
                             out.println("Loaded file is not image");
                         }
                     } else {
                         if(item.getFieldName().equals("fileName")) {
                             paramFileName = item.getString();
-                            out.println(paramFileName);
                         }
                     }
                 }
             }catch (Exception ex) {
                 out.println(ex.getMessage());
+            } finally {
+                out.flush();
             }
         }
-
-        out.flush();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

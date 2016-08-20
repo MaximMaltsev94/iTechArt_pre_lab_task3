@@ -26,7 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="iTechArt_pre_lab_task3" target="1.5" />
+      <module name="iTechArt_pre_lab_task3" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
