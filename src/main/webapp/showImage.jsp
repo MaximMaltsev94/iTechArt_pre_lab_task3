@@ -19,24 +19,36 @@
 <div class="jlab-container">
 
     <% String imageFolder = request.getAttribute("imageFolder").toString();
-        File []images = new File(imageFolder).listFiles();
-        List<String> imagesPaths = new ArrayList<>();
-        for(File f : images) {
-            if(!f.isDirectory()) {
-                imagesPaths.add("img/" + f.getName());
+        File[] images = new File(imageFolder).listFiles();
+        List<List<String>> imagesPaths = new ArrayList<List<String>>();
+        int i = 0;
+        for (File f : images) {
+            if (!f.isDirectory()) {
+                if (i == 0) {
+                    imagesPaths.add(new ArrayList<String>());
+                }
+                imagesPaths.get(imagesPaths.size() - 1).add("img/" + f.getName());
+                i++;
+                if (i == 3) {
+                    i = 0;
+                }
             }
         }
         pageContext.setAttribute("imagesPaths", imagesPaths);
     %>
+
     <a href="<c:url value="/" />">Back to previous page</a>
 
-        <c:forEach var="imgName" items="${imagesPaths}">
-            <div class="jlab-row">
+    <c:forEach var="imgCol" items="${imagesPaths}">
+        <div class="jlab-row">
+            <c:forEach var="imgName" items="${imgCol}">
                 <div class="jlab-cell-4">
-                    <img src="${imgName}" />
+                    <img src="${imgName}" width="100%"/>
                 </div>
-            </div>
-        </c:forEach>
+            </c:forEach>
+
+        </div>
+    </c:forEach>
 </div>
 </body>
 </html>
