@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="iTechArt_pre_lab_task3:war exploded">
-    <output-path>$PROJECT_DIR$/target/iTechArt_pre_lab_task3</output-path>
+    <output-path>$PROJECT_DIR$/target/iTechArt-pre-lab-task3</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -16,7 +16,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/iTechArt_pre_lab_task3/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/iTechArt-pre-lab-task3/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="iTechArt_pre_lab_task3/web/Web" />
     </root>
