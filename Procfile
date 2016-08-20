@@ -1,0 +1,1 @@
+web:    java -jar target/dependency/webapp-runner.jar target/iTechArt-pre-lab-task3.war
